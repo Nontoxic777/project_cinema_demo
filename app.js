@@ -9,6 +9,16 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// connect Mongo
+const mongoose = require('mongoose');
+require('./api/models/Movie');
+var mongoDB = 'mongodb://datsp314:Datsp314@ds137581.mlab.com:37581/datsp314';
+mongoose.connect(mongoDB);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error: '));
+
+var movieRouter = require('./api/router/movie');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/movie', movieRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
