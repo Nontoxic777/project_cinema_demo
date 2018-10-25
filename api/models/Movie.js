@@ -1,16 +1,16 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
 // require('')
 
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema
 
 var MovieSchema = new Schema(
   {
-    name : {type: String, required: true},
-    kind : {type: String, required: true},
-    releaseDate : {type: Number},
-    content : {type: String},
+    name: {type: String, required: true},
+    kind: {type: String, required: true},
+    releaseDate: {type: Number},
+    content: {type: String}
   }
-);
+)
 
 // Tạo phương thức ảo cho tên phim
 // MovieSchema
@@ -27,4 +27,4 @@ var MovieSchema = new Schema(
 // });
 
 // Xuất mô hình
-module.exports = mongoose.model('Movie', MovieSchema);
+module.exports = mongoose.model('Movie', MovieSchema)
