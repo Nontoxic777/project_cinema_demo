@@ -5,9 +5,9 @@ const userController = require('../controllers/userController')
 
 router.get('/', async function (req, res) {
   try {
-    const username = userController.loginUser()
-    console.log(username)
+    const username = await userController.loginUser()
     res.send(username)
+    console.log(username)
   } catch (err) {
     console.log(err)
     res.send(err)

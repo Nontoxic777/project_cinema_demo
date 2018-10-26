@@ -12,7 +12,8 @@ const createUser = async (data) => {
 }
 
 const loginUser = async (data) => {
-  const username = await User.findOne(data.username)
+  var user = {username: data.username}
+  const username = await User.find(user)
   return {username: username}
 }
 

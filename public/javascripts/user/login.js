@@ -4,7 +4,9 @@ myApp.controller('userLogin', ['$scope', 'apiService', function ($scope, apiServ
   $scope.userLogin = function () {
     var data = {
       username: $scope.username,
-      password: $scope.password
+      password: $scope.password,
+      passwordValid: '',
+      email: ''
     }
     console.log(data)
     apiService.loginUser(data)
