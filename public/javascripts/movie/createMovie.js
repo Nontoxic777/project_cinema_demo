@@ -20,8 +20,9 @@
 var myApp = angular.module('Movie')
 myApp.controller('CreateController', ['$scope', 'apiService', function ($scope, apiService) {
   $scope.movieName = ''
+  $scope.movieKind = 'Lãng mạn - Tình cảm'
   $scope.movieContent = ''
-  $scope.postData = function ($http) {
+  $scope.postData = function () {
     var data = {
       name: $scope.movieName,
       kind: $scope.movieKind,

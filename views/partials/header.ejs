@@ -1,30 +1,32 @@
 <div class="container">
-    <nav class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a class="navbar-link" href="/tao-phim">Tạo Phim</a></li>
-                <li class="drop-down">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Danh Mục<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="">Thể loại 1</a></li>
-                        <li><a href="">Thể loại 2</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a class="navbar-link glyphicon glyphicon-log-in" href="#"><small> ĐăngNhập</small></a></li>
-                <li><a class="navbar-link glyphicon glyphicon-pencil" href="#"><small> ĐăngKí</small></a></li>
-            </ul>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-img" href="/"><img src="/images/IMG.png" alt="error"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><button class="user-action action-right"><h4><a class="navbar-link" href="/tao-phim">Tạo Phim</a></h4></button></li>
+                    <li class="drop-down">
+                        <a href="#" class="dropdown-toggle navdrop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><button class="user-action"><h4>Thể Loại<span class="caret"></span></h4></button></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Thể loại 1</a></li>
+                            <li><a href="">Thể loại 2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <button class="user-action action-left"><h4><a class="navbar-link glyphicon glyphicon-log-in" href="#">&nbsp ĐĂNG NHẬP</a></h4></button></li>
+                    <li> <button class="user-action action-left"><h4><a class="navbar-link glyphicon glyphicon-pencil" href="/dang-ky-tai-khoan"> ĐĂNG KÝ</a></h4></button></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </div>

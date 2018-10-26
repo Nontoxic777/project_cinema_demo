@@ -11,16 +11,17 @@
 
       <main>
         <div class="container">
-            <div ng-controller="namesCtrl">
-              <h2 align='center'>List phim</h2>
-              <ul>
-                <a class="col-xs-12 col-md-4" ng-repeat="x in movieList" href="/">
-                  <img class="img-thumbnail" src="https://static.cnews.fr/sites/default/files/default_images/default-thumbnail_0.jpg" alt="Error">
-                  <p align='center'>Phim: {{x.name}}</p>
-                </a>
-              </ul>
+          <div class="jumbotron">
+            <div class="row" ng-controller="namesCtrl">
+              <a class="film-display col-xs-12 col-md-3" ng-repeat="x in movieList" href="/">
+                <img class="img-thumbnail img-fluid" src="https://static.cnews.fr/sites/default/files/default_images/default-thumbnail_0.jpg" alt="Error">
+                <h4 class="movie-name">{{x.name}}</h4>
+                <h5 class="movie-kind">Thể Loại: {{x.kind}}</h5>
+                <h5 class="movie-date">Khởi Chiếu: {{x.releaseDate | date:"dd-MM-yyyy"}}</h5>
+              </a>
             </div>
           </div>
+        </div>
       </main>
 
       <footer>

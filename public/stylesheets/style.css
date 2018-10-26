@@ -7,3 +7,64 @@ body.body {
 a {
   color: #00B7FF;
 }
+
+img.img-thumbnail.img-fluid{
+  height: 400px;
+  margin-bottom: 10px;
+}
+
+/* HEAD */
+
+/* HEADER */
+
+.navbar-brand.navbar-img{
+  padding: 0px;
+}
+
+.navbar-brand.navbar-img > img{
+  width: auto;
+  height: 50px;
+  border-color: #e7e7e7;
+}
+
+button.user-action{
+  height: 50px;
+  border: 0px;
+  background-color: #fffffd26;
+}
+
+button.user-action.action-left > h4{
+  word-spacing: -15px;
+}
+
+a.dropdown-toggle.navdrop{
+  padding: 0px;
+}
+
+/* LIST FILM */
+a.film-display.col-xs-12.col-md-3 {
+  color: black;
+  margin-bottom: 10px;
+  text-decoration: none;
+  padding-bottom: 20px;
+}
+
+a.film-display.col-xs-12.col-md-3 > img.img-thumbnail.img-fluid {
+  height: 300px;
+}
+
+a.film-display.col-xs-12.col-md-3 > img.img-thumbnail.img-fluid:hover{
+  background-color: #f5f6f7;
+  border: 1px solid black;
+  /* height: 295px; */
+}
+
+a.film-display.col-xs-12.col-md-3 > h4{
+  margin-top: 5px;
+}
+
+/* CREATE MOVIE */
+a.btn-create-movie{
+  background-color: #cccccc;
+  color: #777;
+}

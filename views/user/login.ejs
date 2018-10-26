@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userAction">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div ng-controller="userLogin">
+                    <form action="">
+                        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                            <label for="username">Username: </label>
+                            <input class="form-control" ng-model="username" type="text" name="username" placeholder="Nhập tên đăng nhập" required>
+                        </div>
+                        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                            <label for="password">Password: </label>
+                            <input class="form-control" ng-model="password" type="password" name="password" required>
+                        </div>
+                        <br>
+                        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                            <a href="#" ng-click="userLogin()" class="btn btn-primary btn-create-user">Đăng Nhập</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+        <script src="/javascripts/user/login.js"></script>
+    </footer>
+</body>
+</html>

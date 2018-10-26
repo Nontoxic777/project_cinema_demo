@@ -10,41 +10,41 @@
     <main>
       <div class="container">
         <h1 align="center">Tạo Phim Mới</h1>
-        <form class="create-movie-form" action="index.html" method="post">
+        <form class="create-movie-form" method="post">
           <div class="row">
             <div class="" ng-controller="CreateController">
-            <div class="col-xs-12 col-md-6">
-              <p></p>
-              <img ng-model="movieImg" class="img-thumbnail" src="https://static.cnews.fr/sites/default/files/default_images/default-thumbnail_0.jpg" alt="Error">
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <label for="movieName">Tên bộ phim</label>
-              <input ng-model="movieName" class="form-control" type="text" name="movieName" placeholder="Input name">
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <label for="movieKind">Thể loại phim</label>
-              <select ng-model="movieKind" class="form-control" name="movieKind" size="1">
-                <option value="tieu-su-lich-su">Tiểu sử - Lịch sử</option>
-                <option value="lang-man-tinh-cam">Lãng mạn - Tình cảm</option>
-                <option value="khoa-hoc-vien-tuong">Khoa học - viễn tưởng</option>
-                <option value="huyen-bi-huyen-ao">Huyền bí - Huyền ảo</option>
-                <option value="phieu-luu-mao-hiem">Phiêu lưu - Mao hiểm</option>
-                <option value="phap-luat-hinh-su">Pháp luật hình sự</option>
-              </select>
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <label for="movieDate">Ngày phát hành</label>
-              <input ng-model="movieDate" class="form-control" id="datepicker" type="text" name="movieDate" value="">
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <label for="movieContent">Nội dung phim</label>
-              <textarea ng-model="movieContent" class="form-control" name="movieContent" rows="4" cols="80"></textarea>
-            </div>
+              <div align='center' class="col-xs-12 col-md-6">
+                <p></p>
+                <img ng-model="movieImg" class="img-thumbnail img-fluid" src="https://static.cnews.fr/sites/default/files/default_images/default-thumbnail_0.jpg" alt="Error">
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <label for="movieName">Tên bộ phim</label>
+                <input ng-model="movieName" class="form-control" type="text" name="movieName" placeholder="Nhập tên phim" required>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <label for="movieKind">Thể loại phim</label>
+                <select ng-model="movieKind" class="form-control" name="movieKind">
+                  <option>Tiểu sử - Lịch sử</option>
+                  <option>Lãng mạn - Tình cảm</option>
+                  <option>Khoa học - viễn tưởng</option>
+                  <option>Huyền bí - Huyền ảo</option>
+                  <option>Phiêu lưu - Mao hiểm</option>
+                  <option>Pháp luật hình sự</option>
+                </select>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <label for="movieDate">Ngày phát hành</label>
+                <input ng-model="movieDate" class="form-control" id="datepicker" type="text" name="movieDate" value="">
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <label for="movieContent">Nội dung phim</label>
+                <textarea ng-model="movieContent" class="form-control" name="movieContent" rows="4" cols="80"></textarea>
+              </div>
 
-            <div class="col-xs-12 col-md-6" align='center'>
-              <br><br>
-              <a class="btn btn-primary btn-lg" ng-click="postData()" href="/">Đăng Phim</a>
-            </div>
+              <div class="col-xs-12 col-md-6" align='right'>
+                <br><br>
+                <a class="btn btn-lg btn-create-movie" ng-click="postData()" href="/">Đăng Phim</a>
+              </div>
             </div>
           </div>
         </form>
