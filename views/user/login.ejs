@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="userAction">
+<html lang="en" ng-app="Movie">
 <head>
     <% include ../partials/head %>
 </head>
-<body>
+<body class="body">
     <header>
         <% include ../partials/header %>
     </header>
@@ -17,20 +17,29 @@
         <div class="container">
             <div class="row">
                 <div ng-controller="userLogin">
-                    <form action="">
-                        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-                            <label for="username">Username: </label>
-                            <input class="form-control" ng-model="username" type="text" name="username" placeholder="Nhập tên đăng nhập" required>
-                        </div>
-                        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-                            <label for="password">Password: </label>
-                            <input class="form-control" ng-model="password" type="password" name="password" required>
-                        </div>
-                        <br>
-                        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-                            <a href="#" ng-click="userLogin()" class="btn btn-primary btn-create-user">Đăng Nhập</a>
-                        </div>
-                    </form>
+                    <div>
+                        <form>
+                            <div class="panel panel-default" style="width:400px;margin: auto;align-content: center">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Đăng nhập</h3>
+                                </div>
+                                <div class="panel-body form-group">
+                                    <label for="email">Email: </label>
+                                    <input class="form-control" ng-model="email" type="text" name="email" placeholder="Nhập email đăng nhập" required>
+                                </div>
+                                <div class="panel-body form-group">
+                                    <label for="password">Password: </label>
+                                    <input class="form-control" ng-model="password" type="password" name="password" required>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="alertLogin" class="hide alert alert-danger" role="alert"><strong>Lỗi</strong>. Bạn nhập thiếu thông tin. Vui lòng kiểm tra lại</div>
+                                </div>
+                                <div class="panel-body form-group">
+                                    <button id="btn-login" ng-click="userLogin()" class="btn btn-md btn-primary" style="float:right">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

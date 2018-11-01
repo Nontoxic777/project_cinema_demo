@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='Movie'>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <br><br><br><br><br>
+        <div class="container" ng-controller='userInfomation'>
+            <div class="userProfileBox">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-md-offset-3">
+                        <img src="/images/user.png" alt="Error" srcset="" class="img-thumbnail img-fluid">
+                    </div>
+                    <div id="userProfileBox" class="col-xs-12 col-md-6 col-md-offset-3">
+                        <form>
+                            <div class="row" style="align-content:center;">
+                                <br>
+                                <div class="col-md-6 col-md-push-2">
+                                    <h3 style="text-align:center;">Thông tin người dùng</h3>
+                                </div>
+                                <div class="col-md-3 col-md-push-2">
+                                    <button class="btn btn-primary" ng-click='changePass()' style="width:107px;text-align: center;margin-left: 42px;">Đổi mật khẩu</button>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="username">Tên hiển thị:</label>
+                                <p ng-hide="isEditting" class="form-control-static">{{infomation.username}}</p>
+                                <input ng-show="isEditting" class="form-control" type="text" value="{{infomation.username}}" ng-model='username'>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <label for="email">Emait đăng kí</label>
+                                <p ng-hide="isEditting" class="form-control-static">{{infomation.email}}</p>
+                                <input ng-show="isEditting" class="form-control" type="text" value="{{infomation.email}}" disabled>
+                            </div>
+                            <div class="col-md-12">
+                                <div ng-show="isErr" class="alert alert-danger" role="alert">Bạn chưa nhập tên hiển thị</div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row"></div>
+                            <div class="col-md-3">
+                                <button ng-show="isEditting" id="btn-userProfileEdit" ng-click="isEditting=false" class="btn btn-md btn-primary" style="width: 100px;">Hủy</button>
+                            </div>
+                            <div class="col-md-3 col-md-push-6">
+                                <button ng-hide="isEditting" id="btn-userProfileEdit" ng-click="isEditting=true" class="btn btn-md btn-primary" style="width: 107px;">Sửa</button>
+                                <button ng-show="isEditting" id="btn-userProfileEdit" ng-click="postData()" class="btn btn-md btn-primary" style="width: 107px;">Lưu</button>
+                            </div>
+                            <br>
+                        </form>
+                        <script>
+                            // $('#btn-userProfileUpdate').on('click', function() {
+                            //     $('#userProfileBox > input').removeClass('hide')
+                            //     $('#userProfileBox > p').addClass('hide')
+                            //     $('#btn-userProfileUpdate').text() = 'Lưu'
+                            //     // $('#btn-userProfileUpdate').attr('ng-click','postData()')
+                            // })
+                        </script>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+        <script src="/javascripts/user/infomation.js"></script>
+    </footer>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <div class="container">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav-head">
+        <div class="container-fluid" style="background-color:#4267b2">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -9,24 +9,146 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand navbar-img" href="/"><img src="/images/IMG.png" alt="error"></a>
+                <a class="navbar-brand navbar-img" href="/"><img src="/images/film-reel.jpg" alt="error"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><button class="user-action action-right"><h4><a class="navbar-link" href="/tao-phim">Tạo Phim</a></h4></button></li>
-                    <li class="drop-down">
-                        <a href="#" class="dropdown-toggle navdrop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><button class="user-action"><h4>Thể Loại<span class="caret"></span></h4></button></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Thể loại 1</a></li>
-                            <li><a href="">Thể loại 2</a></li>
-                        </ul>
-                    </li>
+                <ul id="createMovie" class="nav navbar-nav">
+                    <li><button class="user-action action-right"><h4 style="color:white"><a class="navbar-link navbar-color" href="/phim/tao-phim">Tạo Phim</a></h4></button></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li> <button class="user-action action-left"><h4><a class="navbar-link glyphicon glyphicon-log-in" href="#">&nbsp ĐĂNG NHẬP</a></h4></button></li>
-                    <li> <button class="user-action action-left"><h4><a class="navbar-link glyphicon glyphicon-pencil" href="/dang-ky-tai-khoan"> ĐĂNG KÝ</a></h4></button></li>
+                <div ng-app='Movie' ng-controller='Categorylist'>
+                    <ul class="nav navbar-nav">
+                        <li class="drop-down">
+                            <a href="#" class="dropdown-toggle navdrop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><button class="user-action"><h4>Thể Loại<span class="caret"></span></h4></button></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="category in categoryMovie"><a href="/phim/list/{{category.name}}">{{category.name}} </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul id="logout" class="nav navbar-nav navbar-right">
+                    <li> <button class="user-action action-left"><h4><a class="navbar-link navbar-color glyphicon glyphicon-log-in" href="/dang-nhap"><span>&nbsp</span> ĐĂNG NHẬP</a></h4></button></li>
+                    <li> <button class="user-action action-left"><h4><a class="navbar-link navbar-color glyphicon glyphicon-pencil" href="/dang-ky"> &nbsp ĐĂNG KÝ</a></h4></button></li>
+                </ul>
+                <ul id="login" class="nav navbar-nav navbar-right">
+                    <li> <button class="user-action action-left"><h4><a id="userName" class="navbar-link navbar-color glyphicon glyphicon-user" onclick="userProfile()"><span>&nbsp</span> PROFILE</a></h4></button></li>
+                    <!-- <li class="drop-down" ng-controller='userInfomation'>
+                        <a href="#" class="dropdown-toggle navdrop navbar-link navbar-color" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <button class="user-action action-left"><h4 class="glyphicon glyphicon-user" id="userName">&nbsp PROFILE<span class="caret"></span></h4></button>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Email đăng nhập: <strong>{{Infomation.email}}</strong></a></li>
+                            <li><a href="#">Tên hiển thị:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>{{Infomation.username}}</strong></a></li>
+                            <li><a href="#">Password: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ********</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a data-toggle="modal" data-target="#updateUserModal" href="#">Chỉnh sửa</a></li>
+                        </ul>
+                    </li> -->
+                    <li> <button data-toggle="modal" data-target="#logoutModal" class="user-action action-left"><h4><a class="navbar-link navbar-color glyphicon glyphicon-off">&nbsp ĐĂNG XUẤT</a></h4></button></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
+
+<!-- Modal ĐĂNG XUẤT-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Đăng xuất</h4>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <br>
+            <h5>Bạn chắc chắn muốn thoát khỏi trang?</h5>
+            <br>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+            <button type="button" class="col-xs-2 col-md-2 btn btn-default" data-dismiss="modal" style="width:100px">Thoát</button>
+            <button type="button" class="col-xs-2 col-xs-push-3 col-md-2 col-md-push-3 btn btn-primary btn-color" onclick="Logout()" style="width:100px">Đăng xuất</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal THAY ĐỔI THÔNG TIN USER-->
+<!-- <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller='userUpdate'>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Thay đổi thông tin người dùng</h4>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="panel panel-default" style="width:500px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Nhập thông tin thay đổi</h3>
+                </div>
+                <div class="panel-body">
+                    <label for="username">Tên hiển thị mới: </label>
+                    <input class="form-control" ng-model="Upusername" type="text" name="username" placeholder="Nhập tên mới của bạn">
+                    <label for="password">Mật khẩu mới: </label>
+                    <input class="form-control" ng-model="Uppassword" type="password" name="password">
+                    <label for=""></label>
+                    <div id="updateUserAlert" class="hide alert alert-danger" role="alert">Bạn phải nhập ít nhất 1 thay đổi</div>
+                </div>
+                <div class="panel-body">
+                    <label for="password">Xác nhận thay đổi bằng mật khẩu hiện tại: </label>
+                    <input class="form-control" ng-model="UppasswordValid" type="password" name="password">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+            <button type="button" class="col-xs-2 col-md-2 btn btn-default" data-dismiss="modal" style="width:100px">Thoát</button>
+            <button type="button" class="col-xs-2 col-xs-push-3 col-md-2 col-md-push-3 btn btn-primary btn-color" ng-click="userUpdate()" style="width:100px">Xác nhận</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div> -->
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/javascripts/jquery.cookie.js"></script>
+
+<script>
+    var token = $.cookie('token')
+    var user = $.cookie('currentUser')
+    var id = $.cookie('id')
+    url_Profile = '/user/' + id
+    if (token != null && user != null) {
+        $('#createMovie').removeClass('hide')
+        $('#login').removeClass('hide')
+        $('#logout').addClass('hide')
+        user = user.toUpperCase()
+        $('#userName').text('   '+user)
+    } else {
+        $('#createMovie').addClass('hide')
+        $('#login').addClass('hide')
+        $('#logout').removeClass('hide')
+    }
+    async function Logout (){
+        await $.removeCookie('token')
+        await $.removeCookie('currentUser');
+        await $.removeCookie('emailUser');
+        await $.removeCookie('id');
+        window.location.reload(true)
+    }
+    function userProfile(){
+        window.location.href = url_Profile
+    }
+</script>
+
+<!-- listCategory -->
+<script src="/javascripts/movie/listCategory.js"></script>
+<script src="/javascripts/user/infomation.js"></script>
+<script src="/javascripts/user/update.js"></script>
+

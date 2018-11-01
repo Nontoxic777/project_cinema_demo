@@ -1,14 +1,19 @@
 var mongoose = require('mongoose')
 // require('')
+// const Category = mongoose.model('Category')
 
 var Schema = mongoose.Schema
 
 var MovieSchema = new Schema(
   {
     name: {type: String, required: true},
+    category: {type: Schema.Types.ObjectId, ref: 'Category'},
     kind: {type: String, required: true},
     releaseDate: {type: Number},
-    content: {type: String}
+    content: {type: String},
+    createDate: {type: Number, default: Date.now()},
+    image: {type: String, default: 'Movie.jpg'}
+    // sorf ng-repeat
   }
 )
 

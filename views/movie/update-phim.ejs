@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='Movie'>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="container">
+            <p id="idMovieUpdate" class="hide"><%= i %></p>
+            <form class="create-movie-form" method="post">
+                    <div class="row">
+                      <div class="" ng-controller="movieUpdate">
+                        <div class="col-xs-12 col-md-6">
+                            <p></p>
+                            <img id="blahUpdate" src="/user_photo/movieDetailDefault.jpg" alt="Err" class="img-thumbnail img-fluid img-responsive">
+                            <input id="myFileUpdate" type="file" name="myFile" style="opacity:0; height:0px;width:0px;"/>
+                            <p id="btn-change-img-update" class="col-md-offset-4 btn btn-default btn-md" style="width:150px;height: 40px;padding: auto;text-align: center">CHỌN ẢNH</p>
+                            <script>
+                                $('#blahUpdate').on('click',function(){
+                                  $('#myFileUpdate').click()
+                                })
+                                $('#btn-change-img-update').on('click',function(){
+                                  $('#myFileUpdate').click()
+                                })
+                            </script>
+                            <!-- <button id="btnDisplay">Submit</button> -->
+                            <script>
+                              function readURL(input) {
+            
+                                if (input.files && input.files[0]) {
+                                  var reader = new FileReader();
+            
+                                  reader.onload = function(e) {
+                                    $('#blahUpdate').attr('src', e.target.result);
+                                  }
+                                  console.log(input.files[0])
+                                  $('#fileSrc').text(input.files[0])
+                                  reader.readAsDataURL(input.files[0]);
+                                }
+                                }
+            
+                                $("#myFileUpdate").change(function() {
+                                  console.log(this)
+                                readURL(this);
+                                });
+          
+                              
+                            </script>
+                            <!-- <img ng-model="movieImg" class="img-thumbnail img-fluid" src="https://static.cnews.fr/sites/default/files/default_images/default-thumbnail_0.jpg" alt="Error"> -->
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                          <label for="movieName">Tên bộ phim</label>
+                          <input ng-model="movieName" class="form-control" type="text" name="movieName" placeholder="Nhập tên phim" required>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                          <label for="movieKind">Thể loại phim</label>
+                          <select ng-model="movieKind" class="form-control" name="movieKind">
+                            <option ng-repeat="category in listCategory">{{category.name}}</option>
+                          </select>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                          <label for="movieDate">Ngày phát hành</label>
+                          <input ng-model="movieDate" class="form-control" id="datepicker" type="text" name="movieDate" value="">
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                          <label for="movieContent">Nội dung phim</label>
+                          <textarea ng-model="movieContent" class="form-control" name="movieContent" rows="4" cols="80"></textarea>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6">
+                            <div id="alertMovieUpdate" class="hide alert alert-danger" role="alert"><strong>Lỗi</strong>. Bạn nhập thiếu thông tin. Vui lòng kiểm tra lại</div>
+                        </div>
+
+                        <div class="clearfix visible-md-inline"></div>
+
+                        <div class="col-xs-12 col-md-6" align='right'>
+                          <br><br>
+                          <button class="user-action"><h4><a class="btn-create-movie" ng-click="movieUpdate()" href="#">Đăng Phim</a></h4></button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+        <script src="/javascripts/movie/updateMovie.js"></script>
+    </footer>
+</body>
+</html>

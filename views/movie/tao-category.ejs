@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Movie">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <br><br><br><br><br><br>
+        <div class="container">
+            <div ng-controller="Category">
+                <form action="">
+                    <div>
+                        <label for="nameCategory">Nhập tên thể loại phim</label>
+                        <input ng-model="nameCategory" type="text" name="nameCategory">
+                        <button><h4><a href="/tao-category" ng-click="postData()">Tạo</a></h4></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+        <script src="/javascripts/movie/category.js"></script>
+    </footer>
+</body>
+</html>

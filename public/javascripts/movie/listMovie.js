@@ -1,8 +1,9 @@
 var myApp = angular.module('Movie')
-myApp.controller('namesCtrl', ['$scope', 'apiService', function ($scope, apiService) {
+myApp.controller('listMovie', ['$scope', 'apiService', function ($scope, apiService) {
   apiService.getMovies().then(function (response) {
     $scope.movieList = response.data.list
-    console.log(response)
+    // console.log($scope.movieList)
+    console.log($scope.movieList)
   })
 }
 ])

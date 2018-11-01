@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="Movie">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <br><br><br><br><br>
+        <div class="container">
+            <div ng-controller='detailMovie'>
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <img class="img-responsive" src="/user_photo/{{ detail_movie.image }}" alt="Error" srcset="">
+                        </div>
+                        <p id="id-movie" class='hide'><%= id %></p>
+                        <h3>Tên phim : {{ detail_movie.name }}</h3>
+                        <h5>Thể loại : {{ detail_movie.kind }}</h5>
+                        <h5>Ngày phát hành : {{detail_movie.releaseDate | date:"dd-MM-yyyy"}}</h5>
+                        <div class="contentMovieDetail">
+                            <h5>Nội dung phim : {{ detail_movie.content }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+        <script src="/javascripts/movie/detailMovie.js"></script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Movie">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <br><br><br><br><br>
+        <div class="container">
+            <div class="jumbotron">
+                <div class="row" ng-controller="categoryMovie">
+                    <p class="hide" id='name-category'><%= name %></p>
+                    <h3>Danh sách các phim thể loại : <%= name %></h3>
+                    <a class="film-display col-xs-12 col-md-3" ng-repeat="x in categoryMovie" href="/phim/{{x._id}}">
+                    <img class="img-thumbnail img-fluid" src="/user_photo/{{x.image}}" alt="Error">
+                    <p class="hide" id='id-movie'>{{x._id}}</p>
+                    <h4 class="movie-name">{{x.name}}</h4>
+                    <h5 class="movie-kind">Thể Loại: {{x.kind}}</h5>
+                    <h5 id='date-number' hidden>{{x.releaseDate}}</h5>
+                    <h5 id='releaseDateMovie' class="movie-date">{{x.releaseDate | date:'dd/MM/yyyy'}}</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+        <script src="/javascripts/movie/categoryMovie.js"></script>
+    </footer>
+</body>
+</html>

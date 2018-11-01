@@ -12,12 +12,14 @@
       <main>
         <div class="container">
           <div class="jumbotron">
-            <div class="row" ng-controller="namesCtrl">
-              <a class="film-display col-xs-12 col-md-3" ng-repeat="x in movieList" href="/">
-                <img class="img-thumbnail img-fluid" src="https://static.cnews.fr/sites/default/files/default_images/default-thumbnail_0.jpg" alt="Error">
+            <div class="row" ng-controller="listMovie">
+              <a class="film-display col-xs-12 col-md-3" ng-repeat="x in movieList" href="/phim/{{x._id}}">
+                <img class="img-thumbnail img-fluid" src="/user_photo/{{x.image}}" alt="Error">
+                <p class="hide" id='id-movie'>{{x._id}}</p>
                 <h4 class="movie-name">{{x.name}}</h4>
                 <h5 class="movie-kind">Thể Loại: {{x.kind}}</h5>
-                <h5 class="movie-date">Khởi Chiếu: {{x.releaseDate | date:"dd-MM-yyyy"}}</h5>
+                <h5 id='date-number' hidden>{{x.releaseDate}}</h5>
+                <h5 id='releaseDateMovie' class="movie-date">{{x.releaseDate | date:'dd/MM/yyyy'}}</h5>
               </a>
             </div>
           </div>
@@ -27,6 +29,11 @@
       <footer>
         <% include ../partials/footer %>
         <script src="/javascripts/movie/listMovie.js"></script>
+        <!-- <script>
+            var d = parseInt($('#date-number').text())
+            var ngay = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear()
+            $('#releaseDateMovie').text() = 'Khởi Chiếu: ' + ngay
+        </script> -->
       </footer>
     </body>
   </html>
